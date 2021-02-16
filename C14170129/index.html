@@ -36,6 +36,10 @@
                             <label class="control-label" for="date">Date</label>
                             <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text">
                         </div>
+                        <div class="form-group">
+                            <label class="control-label" for="date">Date 2</label>
+                            <input class="form-control" id="date2" name="date" placeholder="MM/DD/YYYY" type="text">
+                        </div>
                     </form>
                 </div>
             </div>
@@ -44,15 +48,27 @@
     <div class="form-group">
         <button class="btn btn-primary" id="compButton">Compare</button>
     </div>
+    <div class="form-group">
+        <button class="btn btn-primary" id="compButton2">Compare 2</button>
+    </div>
     <script>
         document.getElementById("compButton").addEventListener("click", compareDate)
+        document.getElementById("compButton2").addEventListener("click", compareDate2)
         function compareDate() {
             let dateNow = new Date(Date.now())
             let dateInput = document.getElementById("date").value
             let gonnaCompare = new Date(dateInput)
             const diffTime = Math.abs(dateNow - gonnaCompare);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            console.log(diffDays + " days from today");
+            alert(diffDays + " days from today");
+        }
+        function compareDate2() {
+            let dateNow = new Date(Date.now())
+            let dateInput = document.getElementById("date2").value
+            let gonnaCompare = new Date(dateInput)
+            const diffTime = Math.abs(dateNow - gonnaCompare);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            alert(diffDays + " days");
         }
     </script>
 </body>
